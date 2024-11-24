@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.eclasssystem.controller.StudentsViewController">
+
+    <HBox spacing="10">
+        <TextField fx:id="searchField" promptText="Search students..." HBox.hgrow="ALWAYS"/>
+        <ComboBox fx:id="classFilterComboBox" promptText="Filter by Class"/>
+        <Button text="Add" onAction="#handleAddStudent"/>
+        <Button text="Delete" onAction="#handleDeleteStudent"/>
+    </HBox>
+
+    <TableView fx:id="studentsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" />
+            <TableColumn fx:id="nameColumn" text="Name" />
+            <TableColumn fx:id="classColumn" text="Class" />
+            <TableColumn fx:id="genderColumn" text="Gender" />
+        </columns>
+    </TableView>
+</VBox>

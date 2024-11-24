@@ -1,0 +1,21 @@
+id	sname	category
+1	Information Technology	information technology
+2	Earth and Environmental Science	science
+3	Literature	humanities
+4	History	humanities
+5	Mathematics	mathematics
+6	Physics	science
+7	Singing and Music	arts
+8	Drawing and Visual Culture	arts
+9	Philosophy	humanities
+10	Biology	science
+11	Chemistry	science
+12	English Language	languages
+13	French Language	languages
+14	German Language	languages
+15	Italian Language	languages
+16	Russian Language	languages
+17	Spanish Language	languages
+18	Latin Language	languages
+19	Hungarian Language	humanities
+20	Arts	arts

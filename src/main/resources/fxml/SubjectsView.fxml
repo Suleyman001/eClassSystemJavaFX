@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.eclasssystem.controller.SubjectsViewController">
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <padding>
+            <Insets bottom="10" top="10" left="10" right="10"/>
+        </padding>
+
+        <TextField fx:id="searchField"
+                   promptText="Search subjects..."
+                   HBox.hgrow="ALWAYS"/>
+
+        <ComboBox fx:id="categoryFilterComboBox"
+                  promptText="Filter by Category"/>
+
+        <Button text="Add Subject"
+                onAction="#handleAddSubject"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+
+        <Button text="Delete Subject"
+                onAction="#handleDeleteSubject"
+                style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+    </HBox>
+
+    <TableView fx:id="subjectsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="nameColumn" text="Subject Name" prefWidth="200"/>
+            <TableColumn fx:id="categoryColumn" text="Category" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <!-- Existing buttons -->
+        <Button text="Export to CSV" onAction="#handleExportToCSV"/>
+        <Button text="Export to Excel" onAction="#handleExportToExcel"/>
+        <Button text="Export to PDF" onAction="#handleExportToPDF"/>
+    </HBox>
+</VBox>
