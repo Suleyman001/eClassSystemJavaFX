@@ -8,7 +8,7 @@
       fx:controller="com.example.eclasssystem.controller.MainViewController">
 
   <Label text="EClass System" style="-fx-font-size: 24px;"/>
-
+  <Button text="MNB Exchange Rates" onAction="#openSoapClientView"/>
   <Button text="Students" onAction="#openStudentsView"/>
   <Button text="Subjects" onAction="#openSubjectsView"/>
   <Button text="Marks" onAction="#openMarksView"/>

@@ -5,11 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import javafx.scene.control.Alert;
 import java.io.IOException;
 
 public class MainViewController {
-
+    private static final Logger logger = LoggerFactory.getLogger(MainViewController.class);
     @FXML
     public void openStudentsView() {
         try {
@@ -59,6 +61,25 @@ public class MainViewController {
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void openSoapClientView() {
+        try {
+            Parent soapClientView = FXMLLoader.load(getClass().getResource("/fxml/SoapClientView.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("MNB Exchange Rates");
+            stage.setScene(new Scene(soapClientView, 600, 500));
+            stage.show();
+        } catch (IOException e) {
+            logger.error("Error opening SOAP Client view", e);
+            // Optionally show an error dialog
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("View Error");
+            alert.setHeaderText("Could not open SOAP Client view");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
     }
 }

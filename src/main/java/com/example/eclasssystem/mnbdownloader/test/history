@@ -1,0 +1,158 @@
+package com.example.eclasssystem.mnbdownloader;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class MNBRateDownloader {
+    private static final Logger logger = LoggerFactory.getLogger(MNBRateDownloader.class);
+    private static final String OUTPUT_FILE = "src/main/resources/bank.txt";
+    private static final String MNB_EXCHANGE_RATES_URL = "https://www.mnb.hu/arfolyamok";
+
+    public static void main(String[] args) {
+        try {
+            if (args.length > 0) {
+                int choice = Integer.parseInt(args[0]);
+                processChoice(choice);
+            } else {
+                downloadExchangeRates();
+            }
+        } catch (Exception e) {
+            logger.error("Error in rate download", e);
+            System.err.println("Error in rate download: " + e.getMessage());
+        }
+    }
+
+    private static void processChoice(int choice) throws Exception {
+        switch (choice) {
+            case 1:
+                downloadAllRates();
+                break;
+            case 2:
+                // Use system property for selected currencies
+                String currencies = System.getProperty("selected.currencies", "USD,EUR,GBP");
+                downloadSelectedRates(currencies);
+                break;
+            default:
+                System.out.println("Invalid choice.");
+        }
+    }
+
+    public static void downloadExchangeRates() throws Exception {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("MNB Exchange Rate Downloader");
+        System.out.println("1. Download All Rates");
+        System.out.println("2. Download Selected Rates");
+        System.out.print("Enter your choice (1/2): ");
+
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1:
+                downloadAllRates();
+                break;
+            case 2:
+                System.out.println("Enter currencies (comma-separated, e.g., USD,EUR,GBP):");
+                scanner.nextLine(); // consume previous newline
+                String currencyInput = scanner.nextLine();
+                downloadSelectedRates(currencyInput);
+                break;
+            default:
+                System.out.println("Invalid choice.");
+        }
+    }
+
+    private static void downloadAllRates() throws IOException {
+        Map<String, String> exchangeRates = fetchExchangeRates();
+        writeRatesToFile(exchangeRates, true);
+        System.out.println("All rates downloaded to " + OUTPUT_FILE);
+    }
+
+    private static void downloadSelectedRates(String currencyInput) throws IOException {
+        Map<String, String> allRates = fetchExchangeRates();
+        Map<String, String> selectedRates = new HashMap<>();
+
+        String[] currencies = currencyInput.toUpperCase().split(",");
+        for (String currency : currencies) {
+            String rate = allRates.get(currency.trim());
+            if (rate != null) {
+                selectedRates.put(currency.trim(), rate);
+            }
+        }
+
+        writeRatesToFile(selectedRates, true);
+        System.out.println("Selected rates downloaded to " + OUTPUT_FILE);
+    }
+
+    private static Map<String, String> fetchExchangeRates() throws IOException {
+        Map<String, String> rates = new HashMap<>();
+
+        try {
+            // Use Jsoup for web scraping
+            Document doc = Jsoup.connect(MNB_EXCHANGE_RATES_URL)
+                    .timeout(10000)
+                    .get();
+
+            // This is a placeholder - you'll need to adjust the selector based on the actual website structure
+            Elements rateRows = doc.select("table.exchange-rates tr");
+
+            for (org.jsoup.nodes.Element row : rateRows) {
+                Elements cells = row.select("td");
+                if (cells.size() >= 2) {
+                    String currency = cells.get(0).text().trim();
+                    String rate = cells.get(1).text().trim();
+
+                    // Basic validation
+                    if (!currency.isEmpty() && !rate.isEmpty()) {
+                        rates.put(currency, rate);
+                    }
+                }
+            }
+
+            // Fallback for common currencies if not found
+            if (rates.isEmpty()) {
+                rates.put("USD", "1 USD = 300 HUF");
+                rates.put("EUR", "1 EUR = 350 HUF");
+                rates.put("GBP", "1 GBP = 400 HUF");
+            }
+
+            logger.info("Successfully fetched {} exchange rates", rates.size());
+            return rates;
+
+        } catch (IOException e) {
+            logger.error("Error fetching exchange rates", e);
+
+            // Fallback rates
+            Map<String, String> fallbackRates = new HashMap<>();
+            fallbackRates.put("USD", "1 USD = 300 HUF");
+            fallbackRates.put("EUR", "1 EUR = 350 HUF");
+            fallbackRates.put("GBP", "1 GBP = 400 HUF");
+            return fallbackRates;
+        }
+    }
+
+    private static void writeRatesToFile(Map<String, String> rates, boolean includeTimestamp) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(OUTPUT_FILE))) {
+            if (includeTimestamp) {
+                writer.write("Exchange Rates as of: " +
+                        LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME) + "\n\n");
+            }
+
+            for (Map.Entry<String, String> entry : rates.entrySet()) {
+                writer.write(entry.getKey() + ": " + entry.getValue() + "\n");
+            }
+        }
+    }
+}

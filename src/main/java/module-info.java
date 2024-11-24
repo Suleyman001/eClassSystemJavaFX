@@ -12,6 +12,10 @@ module com.example.eclasssystem {
     requires org.apache.poi.ooxml;
     requires itextpdf;
 
+
+    requires java.net.http;
+    requires org.jsoup;
+
     // Export and open necessary packages
     exports com.example.eclasssystem;
     exports com.example.eclasssystem.controller;
@@ -22,4 +26,7 @@ module com.example.eclasssystem {
     opens com.example.eclasssystem to javafx.fxml;
     opens com.example.eclasssystem.controller to javafx.fxml;
     opens com.example.eclasssystem.services to javafx.base;
+
+
+    opens com.example.eclasssystem.mnbdownloader to javafx.base;
 }

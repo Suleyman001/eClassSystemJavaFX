@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+
+<?import javafx.scene.chart.BarChart?>
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.eclasssystem.controller.SoapClientController">
+
+    <HBox spacing="10">
+        <Button text="Download All Rates" onAction="#handleDownloadAllRates"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <ComboBox fx:id="currencyComboBox" promptText="Select Currency"/>
+        <DatePicker fx:id="startDatePicker" promptText="Start Date"/>
+        <DatePicker fx:id="endDatePicker" promptText="End Date"/>
+        <Button text="Download Selected" onAction="#handleDownloadSelectedRates"/>
+    </HBox>
+
+    <TextArea fx:id="ratesDisplayArea"
+              editable="false"
+              wrapText="true"
+              prefHeight="200"/>
+
+    <LineChart fx:id="exchangeRateChart">
+        <xAxis>
+            <CategoryAxis label="Date"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Rate (HUF)" />
+        </yAxis>
+    </LineChart>
+</VBox>
