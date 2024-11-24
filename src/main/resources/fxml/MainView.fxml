@@ -13,4 +13,6 @@
   <Button text="Subjects" onAction="#openSubjectsView"/>
   <Button text="Marks" onAction="#openMarksView"/>
   <Button text="Statistics" onAction="#openStatisticsView"/>
+
+  <Button text="Parallel Demo" onAction="#openParallelView"/>
 </VBox>

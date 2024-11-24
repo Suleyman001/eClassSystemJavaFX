@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.eclasssystem.controller.ParallelController">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox spacing="20" alignment="CENTER">
+        <VBox spacing="10" alignment="CENTER" style="-fx-border-color: grey; -fx-padding: 10;">
+            <Label text="Counter 1 (1 second)" style="-fx-font-weight: bold"/>
+            <Label fx:id="label1" text="0" style="-fx-font-size: 24;"/>
+        </VBox>
+
+        <VBox spacing="10" alignment="CENTER" style="-fx-border-color: grey; -fx-padding: 10;">
+            <Label text="Counter 2 (2 seconds)" style="-fx-font-weight: bold"/>
+            <Label fx:id="label2" text="0" style="-fx-font-size: 24;"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button fx:id="startButton" text="Start Counters" onAction="#handleStart"/>
+        <Button fx:id="stopButton" text="Stop Counters" onAction="#handleStop" disable="true"/>
+    </HBox>
+
+    <Label fx:id="statusLabel" text="Status: Ready" style="-fx-text-fill: green;"/>
+</VBox>

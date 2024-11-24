@@ -82,4 +82,20 @@ public class MainViewController {
             alert.showAndWait();
         }
     }
+
+    @FXML
+    private void openParallelView() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/ParallelView.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = new Stage();
+            stage.setTitle("Parallel Processing Demo");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Show error alert
+        }
+    }
+
 }
