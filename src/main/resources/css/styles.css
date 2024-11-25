@@ -19,3 +19,40 @@
 .button:hover {
     -fx-background-color: #45a049;
 }
+.root {
+    -fx-background-color: #f5f5f5;
+}
+
+.label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.button {
+    -fx-background-color: #80c1ff;
+    -fx-text-fill: #333;
+    -fx-font-size: 16px;
+    -fx-padding: 10 20;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #b3d9ff;
+}
+
+.separator {
+    -fx-background-color: linear-gradient(to left and right, transparent, #d3d3d3 50%, transparent);
+    -fx-min-height: 1px;
+    -fx-max-height: 1px;
+    -fx-pref-width: 80%; /* Ajusta esto según tus necesidades */
+    -fx-alignment: center;
+}
+
+.vbox {
+    -fx-spacing: 20;
+    -fx-padding: 20;
+    -fx-alignment: center;
+}
