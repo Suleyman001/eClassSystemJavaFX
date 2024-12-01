@@ -1,7 +1,7 @@
 # 🎓 Electronic Class Record System
-# EClass System
 
-## Requirements
+
+## Requirements to test this project
 - Java 17 or higher
 - Minimum 512MB RAM
 - Screen Resolution: 1024x768 or higher
