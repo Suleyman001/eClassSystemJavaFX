@@ -1,32 +1,48 @@
 module com.example.eclasssystem {
+    // JavaFX Modules
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.sql;
+    requires javafx.graphics;
 
-    // Simplified SLF4J requirements
+    // Logging Modules
+    requires org.apache.logging.log4j;
     requires org.slf4j;
-    requires static java.logging;
 
+    // Database
+    requires java.sql;
     requires org.xerial.sqlitejdbc;
-    requires com.opencsv;
+
+    // HTTP and Network
+    requires okhttp3;
+    requires org.apache.httpcomponents.httpcore;
+    requires org.apache.httpcomponents.httpclient;
+    requires java.net.http;
+
+    // File Processing
+    requires org.apache.poi.poi;
     requires org.apache.poi.ooxml;
+    requires com.opencsv;
     requires itextpdf;
 
-
-    requires java.net.http;
+    // XML Processing
     requires org.jsoup;
+    requires xerces;
 
-    // Export and open necessary packages
+    // Reflection and Runtime
+    requires java.desktop;
+
+    // Export and Open Packages
     exports com.example.eclasssystem;
     exports com.example.eclasssystem.controller;
     exports com.example.eclasssystem.services;
     exports com.example.eclasssystem.util;
     exports com.example.eclasssystem.exceptions;
+    exports com.example.eclasssystem.mnbdownloader;
 
+    // Open packages for reflection and JavaFX
     opens com.example.eclasssystem to javafx.fxml;
     opens com.example.eclasssystem.controller to javafx.fxml;
     opens com.example.eclasssystem.services to javafx.base;
-
-
     opens com.example.eclasssystem.mnbdownloader to javafx.base;
+    opens com.example.eclasssystem.util to javafx.base;
 }
