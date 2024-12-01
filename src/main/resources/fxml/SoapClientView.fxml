@@ -1,38 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.chart.LineChart?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.chart.BarChart?>
-<VBox spacing="10" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.eclasssystem.controller.SoapClientController">
+<VBox prefHeight="918.0" prefWidth="561.0" spacing="20" style="-fx-background-color: linear-gradient(to bottom right, #f0f4f8, #e6eaf0);" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23" fx:controller="com.example.eclasssystem.controller.SoapClientController">
 
-    <HBox spacing="10">
-        <Button text="Download All Rates" onAction="#handleDownloadAllRates"/>
-    </HBox>
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
 
-    <HBox spacing="10">
-        <ComboBox fx:id="currencyComboBox" promptText="Select Currency"/>
-        <DatePicker fx:id="startDatePicker" promptText="Start Date"/>
-        <DatePicker fx:id="endDatePicker" promptText="End Date"/>
-        <Button text="Download Selected" onAction="#handleDownloadSelectedRates"/>
-    </HBox>
+    <Label prefHeight="40.0" prefWidth="515.0" style="-fx-font-size: 28px;                -fx-font-weight: bold;                -fx-text-fill: #2c3e50;                -fx-alignment: center;" text="Exchange Rates Dashboard" />
 
-    <TextArea fx:id="ratesDisplayArea"
-              editable="false"
-              wrapText="true"
-              prefHeight="200"/>
+    <GridPane hgap="20" prefHeight="200.0" prefWidth="530.0" style="-fx-background-color: rgba(255, 255, 255, 0.7);                -fx-background-radius: 10;                -fx-padding: 20;" vgap="20">
+        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="Currency:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <ComboBox fx:id="currencyComboBox" prefHeight="27.0" prefWidth="172.0" style="-fx-background-color: white;                    -fx-background-radius: 5;                    -fx-border-color: #bdc3c7;                    -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-    <LineChart fx:id="exchangeRateChart">
+        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="Start Date:" GridPane.rowIndex="1" />
+        <DatePicker fx:id="startDatePicker" style="-fx-background-color: white;                    -fx-background-radius: 5;                    -fx-border-color: #bdc3c7;                    -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label style="-fx-text-fill: #34495e; -fx-font-weight: bold;" text="End Date:" GridPane.rowIndex="2" />
+        <DatePicker fx:id="endDatePicker" style="-fx-background-color: white;                    -fx-background-radius: 5;                    -fx-border-color: #bdc3c7;                    -fx-border-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Button onAction="#handleDownloadAllRates" prefWidth="232.0" style="-fx-background-color: linear-gradient(to bottom right, #3498db, #2980b9);                    -fx-text-fill: white;                    -fx-font-size: 14px;                    -fx-background-radius: 20;                    -fx-pref-width: 200;                    -fx-pref-height: 40;                    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 5);                    -fx-cursor: hand;" text="💾 Download All Rates" GridPane.columnIndex="2" />
+
+        <Button onAction="#handleDownloadSelectedRates" style="-fx-background-color: linear-gradient(to bottom right, #3498db, #2980b9);                    -fx-text-fill: white;                    -fx-font-size: 14px;                    -fx-background-radius: 20;                    -fx-pref-width: 200;                    -fx-pref-height: 40;                    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 5);                    -fx-cursor: hand;" text="📊 Download Selected Rates" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+
+        <Button onAction="#openGraphForm" prefWidth="236.0" style="-fx-background-color: linear-gradient(to bottom right, #3498db, #2980b9);                    -fx-text-fill: white;                    -fx-font-size: 14px;                    -fx-background-radius: 20;                    -fx-pref-width: 200;                    -fx-pref-height: 40;                    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 5);                    -fx-cursor: hand;" text="📈 Generate Graph" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+    </GridPane>
+
+    <ProgressBar fx:id="progressBar" maxWidth="Infinity" progress="0" style="-fx-accent: #2ecc71;                -fx-control-inner-background: #ecf0f1;" />
+
+    <LineChart fx:id="exchangeRateChart" prefHeight="340.0" prefWidth="518.0" style="-fx-background-color: white;                -fx-background-radius: 10;                -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
         <xAxis>
-            <CategoryAxis label="Date"/>
+            <CategoryAxis label="Date" style="-fx-tick-label-fill: #34495e;" />
         </xAxis>
         <yAxis>
-            <NumberAxis label="Rate (HUF)" />
+            <NumberAxis label="Exchange Rate" style="-fx-tick-label-fill: #34495e;" />
         </yAxis>
     </LineChart>
+
+       <TextArea fx:id="ratesDisplayArea" editable="false" prefHeight="200.0" style="-fx-background-color: white;                -fx-background-radius: 10;                -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);" wrapText="true" />
 </VBox>

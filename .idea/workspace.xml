@@ -9,18 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a6da3ac-7e53-4596-805a-3252dbd24549" name="Changes" comment="Deployment Utilities">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/eClassSystemJavaFX_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DOWNLOAD-ZIP.7z" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/eclasssystem/Launcher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/eclasssystem/deployment/start.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+    <list default="true" id="2a6da3ac-7e53-4596-805a-3252dbd24549" name="Changes" comment="Main View Effects">
+      <change afterPath="$PROJECT_DIR$/exchange_rates.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/txt/exchange_rates.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/eclasssystem/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/eclasssystem/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/eclasssystem/controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/eclasssystem/controller/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/MainView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/eclasssystem/controller/SoapClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/eclasssystem/controller/SoapClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/eclasssystem/services/MNBService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/eclasssystem/services/MNBService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/SoapClientView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/SoapClientView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +87,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/5th semester/eClassSystemJavaFX/src/main/java/com/example/eclasssystem&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/5th semester/eClassSystemJavaFX/src/main/resources/fxml&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/5th semester/eClassSystemJavaFX&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -132,7 +131,9 @@
       <workItem from="1732313387558" duration="305000" />
       <workItem from="1732314001537" duration="53373000" />
       <workItem from="1732536241129" duration="3701000" />
-      <workItem from="1733001728891" duration="5804000" />
+      <workItem from="1733001728891" duration="7725000" />
+      <workItem from="1733023886556" duration="18900000" />
+      <workItem from="1733061816952" duration="2689000" />
     </task>
     <task id="LOCAL-00001" summary="creating and preparing root files">
       <option name="closed" value="true" />
@@ -182,7 +183,31 @@
       <option name="project" value="LOCAL" />
       <updated>1733012176717</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="dependency fix">
+      <option name="closed" value="true" />
+      <created>1733012232308</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733012232308</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Jar File Launcher Class">
+      <option name="closed" value="true" />
+      <created>1733012300184</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733012300184</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Main View Effects">
+      <option name="closed" value="true" />
+      <created>1733012318133</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1733012318133</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +232,9 @@
     <MESSAGE value="JAR file Working Full Independently with SQL file" />
     <MESSAGE value="Database Update" />
     <MESSAGE value="Deployment Utilities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deployment Utilities" />
+    <MESSAGE value="dependency fix" />
+    <MESSAGE value="Jar File Launcher Class" />
+    <MESSAGE value="Main View Effects" />
+    <option name="LAST_COMMIT_MESSAGE" value="Main View Effects" />
   </component>
 </project>
