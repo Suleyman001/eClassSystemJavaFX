@@ -1,26 +1,45 @@
 package com.example.eclasssystem.services;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.*;
 import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.io.*;
+import java.net.URL;
 
+import com.example.eclasssystem.util.DatabaseUtil;
+import com.example.eclasssystem.util.DeploymentUtil;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import javafx.application.Platform;
+import javafx.scene.control.Alert;
 
 public class DatabaseManager {
-    private static final String DB_URL = "jdbc:sqlite:src/main/resources/database/data.db";
+    private static String DB_URL = DatabaseUtil.getDatabaseUrl();
     private static final Logger logger = LoggerFactory.getLogger(DatabaseManager.class);
 
     // Database Connection Method
     public static Connection connect() throws SQLException {
-        return DriverManager.getConnection(DB_URL);
+        try {
+            // Ensure the database file is extracted
+            DatabaseUtil.extractDatabaseFile();
+
+            // Connect to the database
+            return DriverManager.getConnection(DB_URL);
+        } catch (SQLException e) {
+            logger.error("Database connection error", e);
+            throw e;
+        }
     }
 
     // Database Initialization Method
@@ -67,10 +86,10 @@ public class DatabaseManager {
     }
 
     // Import Methods for Students, Subjects, and Marks (as in previous message)
-    public void importStudentsFromTxt(String txtFilePath) {
-        logger.info("Starting import of students from: {}", txtFilePath);
+    public void importStudentsFromTxt(InputStream inputStream) {
+        logger.info("Starting import of students from input stream");
         try (Connection conn = connect();
-             BufferedReader br = new BufferedReader(new FileReader(txtFilePath));
+             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
              PreparedStatement pstmt = conn.prepareStatement(
                      "INSERT INTO students (sname, class, boy) VALUES (?, ?, ?)")) {
 
@@ -110,10 +129,10 @@ public class DatabaseManager {
         }
     }
 
-    public void importSubjectsFromTxt(String txtFilePath) {
-        logger.info("Starting import of subjects from: {}", txtFilePath);
+    public void importSubjectsFromTxt(InputStream inputStream) {
+        logger.info("Starting import of subjects from input stream");
         try (Connection conn = connect();
-             BufferedReader br = new BufferedReader(new FileReader(txtFilePath));
+             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
              PreparedStatement pstmt = conn.prepareStatement(
                      "INSERT INTO subjects (sname, category) VALUES (?, ?)")) {
 
@@ -152,10 +171,10 @@ public class DatabaseManager {
         }
     }
 
-    public void importMarksFromTxt(String txtFilePath) {
-        logger.info("Starting import of marks from: {}", txtFilePath);
+    public void importMarksFromTxt(InputStream inputStream) {
+        logger.info("Starting import of marks from input stream");
         try (Connection conn = connect();
-             BufferedReader br = new BufferedReader(new FileReader(txtFilePath));
+             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
              PreparedStatement pstmt = conn.prepareStatement(
                      "INSERT INTO marks (studentid, mdate, mark, type, subjectid) VALUES (?, ?, ?, ?, ?)")) {
 
