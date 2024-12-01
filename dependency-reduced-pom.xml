@@ -76,10 +76,10 @@
     </plugins>
   </build>
   <properties>
-    <maven.compiler.target>17</maven.compiler.target>
-    <slf4j.version>1.7.36</slf4j.version>
     <mainClass>com.example.eclasssystem.Launcher</mainClass>
     <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <slf4j.version>1.7.36</slf4j.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <javafx.version>17.0.2</javafx.version>
   </properties>
