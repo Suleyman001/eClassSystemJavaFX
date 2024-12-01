@@ -1,5 +1,15 @@
 # 🎓 Electronic Class Record System
+# EClass System
 
+## Requirements
+- Java 17 or higher
+- Minimum 512MB RAM
+- Screen Resolution: 1024x768 or higher
+
+## Installation
+1. Ensure Java 17 is installed
+2. Download the JAR file
+3. Run using the provided start script or:
 ## 📋 Project Overview
 
 ## 🚀 Project Purpose
@@ -113,6 +123,26 @@ Push to the branch
 - GitHub Stars
 - GitHub Forks
 - GitHub Issues
-### 📜 License
 
+### Build the JAR:
+```bash
+mvn clean package
+```
+
+### Standard JAR (eClassSystemJavaFX-1.0-SNAPSHOT.jar):
+- Contains only your project's compiled classes
+- Does NOT include dependencies
+- Requires all dependencies to be in the classpath
+- Will NOT run independently
+- Smaller file size
+### JAR with Dependencies (eClassSystemJavaFX-1.0-SNAPSHOT-jar-with-dependencies.jar):
+- Contains your project's classes
+- Includes ALL required dependencies
+- Can run independently
+- Larger file size
+- Recommended for distribution
+
+## Troubleshooting
+- Ensure you have Java 17 installed
+- Check system logs for any errors
 
