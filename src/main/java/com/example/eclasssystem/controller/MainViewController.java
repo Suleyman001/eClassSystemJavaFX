@@ -10,6 +10,12 @@ import org.slf4j.LoggerFactory;
 import javafx.scene.control.Alert;
 import java.io.IOException;
 
+
+
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+
+
 public class MainViewController {
     private static final Logger logger = LoggerFactory.getLogger(MainViewController.class);
     @FXML
@@ -24,6 +30,23 @@ public class MainViewController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void handleMouseEnter(MouseEvent event) {
+        Button button = (Button) event.getSource();
+        button.setStyle(button.getStyle() +
+                "-fx-background-color: #45a049;" +
+                "-fx-cursor: hand;");
+    }
+
+    @FXML
+    private void handleMouseExit(MouseEvent event) {
+        Button button = (Button) event.getSource();
+        button.setStyle(button.getStyle().replace(
+                "-fx-background-color: #45a049;",
+                "-fx-background-color: #4CAF50;"));
+    }
+
 
     @FXML
     public void openSubjectsView() {
