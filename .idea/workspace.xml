@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="eClassSystemJavaFX:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a6da3ac-7e53-4596-805a-3252dbd24549" name="Changes" comment="SoapClient menu: Create a SOAP client for the Hungarian National Bank">
+    <list default="true" id="2a6da3ac-7e53-4596-805a-3252dbd24549" name="Changes" comment="Deployment Utilities">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/eClassSystemJavaFX_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DOWNLOAD-ZIP.7z" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/eclasssystem/Launcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/eclasssystem/deployment/start.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/database/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database/data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/eclasssystem/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/eclasssystem/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/eclasssystem/controller/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/eclasssystem/controller/MainViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/MainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/MainView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +60,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -83,7 +95,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
@@ -104,8 +116,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>
@@ -120,6 +132,7 @@
       <workItem from="1732313387558" duration="305000" />
       <workItem from="1732314001537" duration="53373000" />
       <workItem from="1732536241129" duration="3701000" />
+      <workItem from="1733001728891" duration="5804000" />
     </task>
     <task id="LOCAL-00001" summary="creating and preparing root files">
       <option name="closed" value="true" />
@@ -145,7 +158,31 @@
       <option name="project" value="LOCAL" />
       <updated>1732487503667</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="JAR file Working Full Independently with SQL file">
+      <option name="closed" value="true" />
+      <created>1733011579213</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733011579213</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Database Update">
+      <option name="closed" value="true" />
+      <created>1733012149207</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733012149207</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Deployment Utilities">
+      <option name="closed" value="true" />
+      <created>1733012176717</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1733012176717</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +204,9 @@
     <MESSAGE value="creating and preparing root files" />
     <MESSAGE value="Database Menu (CRUD Application): ✅ 100%&#10;Database and SQLite Setup: ✅ 100%" />
     <MESSAGE value="SoapClient menu: Create a SOAP client for the Hungarian National Bank" />
-    <option name="LAST_COMMIT_MESSAGE" value="SoapClient menu: Create a SOAP client for the Hungarian National Bank" />
+    <MESSAGE value="JAR file Working Full Independently with SQL file" />
+    <MESSAGE value="Database Update" />
+    <MESSAGE value="Deployment Utilities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deployment Utilities" />
   </component>
 </project>
